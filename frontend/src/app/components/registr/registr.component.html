@@ -1,0 +1,33 @@
+<div>
+  <form [formGroup]="userForm" (ngSubmit)="submitForm(userForm.value)" novalidate>
+
+    <label>User name:</label>
+    <input formControlName="firstName" (ngModel)="user.firstName" type="text" class="form-control" placeholder="First name" required>
+
+    <label>User phone:</label>
+    <input formControlName="phoneNumber" (ngModel)="user.phoneNumber" type="number" class="form-control" placeholder="Phone number" required>
+
+    <button type="submit">Registration</button>
+  </form>
+</div>
+
+<div class="container row" *ngIf="users.length > 0">
+  <div class="col-md-5 col-md-offset-6">
+    <table class="table">
+      <thead>
+      <tr class="bg-success">
+        <th scope="col">User name</th>
+        <th scope="col">Phone number</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr class="bg-success" *ngFor="let user of users">
+        <td>{{user.firstName}}</td>
+        <td>{{user.phoneNumber}}</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
